@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bukus', function (Blueprint $table) {
+        Schema::create('bukus', function (Blueprint $table) { 
             $table->id();
             $table->string('judul');
-            $table->foreignId('kategori_id') Constrained('kategori_buku');
+            $table->foreignId('kategori_id')->constrained('kategori_bukus'); 
+            $table->string('kode_buku');
             $table->string('penulis');
             $table->string('penerbit');
-            $table->int('tahun_penerbit');
+            $table->integer('tahun_penerbit');
             $table->timestamps();
         });
     }
